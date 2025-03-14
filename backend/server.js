@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import TaskRouter from "./routes/task_manager_routes.js";
 import UserRoute from "./routes/user_route.js"
 import cors from "cors"
+import { authentication } from "./middleware/authMiddleware.js";
+
 
 let app = express();
 
@@ -18,6 +20,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
+// app.use(authentication)
 
 connectToMongo()
   .then((data) => {
@@ -27,7 +30,7 @@ connectToMongo()
   })
   .catch((err) => console.log(err?.message));
 app.use("/user",UserRoute)
-app.use("/task",TaskRouter)
+app.use("/task",authentication,TaskRouter)
 
 
 

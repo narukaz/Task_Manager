@@ -6,18 +6,31 @@ import {
   Task_delete,
 } from "../controller/task_controller.js";
 import { TaskModel, UserModel } from "../model/user_schema.js";
-import mongoose from "mongoose";
+
 let TaskRouter = express.Router();
 
 TaskRouter.post("/get", async (req, res) => {
   try {
-    const {name} = req.body
+    const {_id} = req.user
 
-    const resp = await UserModel.findOne({ name: "omveer" }).populate("tasks")
+    const {tasks} = await UserModel.findById(_id).populate("tasks")
+
+    const todo = []
+    const finished=[]
+    const inProcess=[]
+    for(let i=tasks.length-1; i>=0; i--){
+      if(tasks[i].status == "todo"){
+        todo.push(tasks[i])
+      }else if(tasks[i].status == "finished"){
+        finished.push(tasks[i])
+      }else{
+        inProcess.push(tasks[i])
+      }
+    }
    
     
-    console.log(resp);
-    res.status(200).json({ data: resp});
+    
+    res.status(200).json({ data:{todo,inProcess,finished}});
   } catch (error) {
     res.status(500).json({
       error: true,
@@ -28,9 +41,10 @@ TaskRouter.post("/get", async (req, res) => {
 
 TaskRouter.post("/create", async (req, res) => {
   try {
-    const { title, description, start, end, _id } = req.body;
+    const { title, description, start, end,tags } = req.body;
+    const {_id} = req.user
 
-
+    console.log(title,description,start,end,_id,tags)
     const user = await UserModel.findById(_id);
 
     if (!user) {
@@ -43,13 +57,20 @@ TaskRouter.post("/create", async (req, res) => {
     const data = new TaskModel({
       title,
       description,
+      tags,
       start: start || new Date(),
-      end:  new Date(end),
-      status: "pending",
+      end:  end || new Date(),
+      status: "todo",
     });
-    console.log(data)
+    
 
     await data.save()
+    tags.forEach(async element =>  {
+      const user = await UserModel.findOne({userId:element})
+      if(!user) return
+      user.tags=[...user.tags, data._id]
+      await user.save()
+    });
 
     if (!data) {
       return res.status(404).json({
@@ -61,7 +82,7 @@ TaskRouter.post("/create", async (req, res) => {
     user.tasks = [...user.tasks, data._id];
     await user.save();
 
-    res.status(200).json({ message: "created", data });
+    res.status(200).json({ message: "created", data,error:false });
   } catch (error) {
     res.status(500).json({
       error: true,
@@ -69,10 +90,12 @@ TaskRouter.post("/create", async (req, res) => {
     });
   }
 });
-TaskRouter.patch("/edit",async(req,res)=>{
+TaskRouter.post("/edit",async(req,res)=>{
     const {_id,...Data} = req.body
-    const task = await TaskModel.findByIdAndUpdate(_id,{...Data})
-    console.log(task)
+    
+   
+    let task = await TaskModel.findByIdAndUpdate(_id,Data,{new:true})
+    // console.log(task)
     res.status(200).json({
         message:"Change applied to the task",
         error:false,
@@ -80,8 +103,9 @@ TaskRouter.patch("/edit",async(req,res)=>{
     })
 });
 TaskRouter.delete("/delete", async (req,res)=>{
-    const {_id,name} =req.body
-    const user = await UserModel.findOne({name})
+    const {cardId} =req.body
+    const {_id} = req.user
+    const user = await UserModel.findById(_id)
     if(!user){
         res.status(404).json({
             message:"user not found",
@@ -89,10 +113,10 @@ TaskRouter.delete("/delete", async (req,res)=>{
         })
         return
     }
-    user.tasks = user.tasks.filter((value)=> value !=  _id)
+    user.tasks = user.tasks.filter((value)=> value !=  cardId)
     await user.save()
-    const task =  await TaskModel.findByIdAndDelete(_id)
-   console.log(task)
+    const task =  await TaskModel.findByIdAndDelete(cardId)
+
    res.status(200).json({
     message:"Task deleted successfully",
     error:false
