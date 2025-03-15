@@ -26,7 +26,7 @@ UserRoute.get("/getUser",authentication,async(req,res)=>{
 UserRoute.post("/login", async (req, res) => {
     try {
   let { userId, password } = req.body;
-  console.log(userId,password)
+
 
   
 
@@ -48,7 +48,8 @@ UserRoute.post("/login", async (req, res) => {
 
 
 
-    const hashPassword =  bcrypt.compare(password,response.password)
+    const hashPassword = await bcrypt.compare(password,response.password)
+    console.log(hashPassword)
     if (hashPassword) {
       let token = jwt.sign({_id:response._id,name:response.name},"abcdefghijklmnopqrstuvwxys",{expiresIn:'1h'})
       res.cookie('token',token)
@@ -62,8 +63,8 @@ UserRoute.post("/login", async (req, res) => {
 
     
 
-    console.log(hashPassword)
-    console.log(response.password)
+   
+
 
     return res.status(200).json({
       message:"invalid credentials",
@@ -77,7 +78,7 @@ UserRoute.post("/login", async (req, res) => {
 
 UserRoute.post("/signup", async (req, res) => {
     try {
-    console.log(req.body)
+   
     let { name,userId, password } = req.body;
     
     if (!name || !password) {
@@ -88,7 +89,7 @@ UserRoute.post("/signup", async (req, res) => {
       return
     }
     const hashPassword = await bcrypt.hash(password,12)
-    console.log(hashPassword)
+  
     let user = await UserModel.findOne({userId})
 
     if(user !=null){
