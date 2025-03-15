@@ -12,9 +12,10 @@ function CardModal({onCancel,title,setTitle,description,setDescription,setTags,s
     }
     setTags((tags)=>[...tags,currTag])
     setCurrTag("")
-    
     return
   }
+
+
 
   const handleAddCard=()=>{
     if(!title ){
@@ -30,11 +31,11 @@ function CardModal({onCancel,title,setTitle,description,setDescription,setTags,s
   
   return (
     <>
-      <div className="z-10 opacity-15 absolute right-0 top-0 w-full bg-black h-full"></div>
+      <div className="z-10 lg:opacity-15 opacity-50 absolute right-0 top-0 w-full bg-black h-full"></div>
       <div
         className={`z-11 translate  absolute 
 -translate-x-1/2 -translate-y-1/2 rounded-2xl
-w-[90vh] h-[65vh]  ${day? "bg-white text-black":"bg-gray-600 text-white"} left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8`}
+lg:w-[90vh] w-[45vh] lg:h-[65vh] h-[40vh]  ${day? "bg-white text-black":"bg-gray-600 text-white"} left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8`}
       >
         <input
         value={title} onChange={({target}) => setTitle(target.value)}

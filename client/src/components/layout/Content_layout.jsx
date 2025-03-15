@@ -17,7 +17,7 @@ function Content_layout() {
   const [end , setEnd] = useState("")
   const [err,setErr]=useState("")
   const {todo,inProcess,finished}= useSelector((state)=> state.tasks.tasks)
-  
+  console.log(tags)
   const handlestatusForward=(currentStatus,_id)=>{
     let status = ""
     if(currentStatus=="todo"){
@@ -53,15 +53,15 @@ function Content_layout() {
 
   
   const onCancel = ()=>{
-   
         setEditId("")
+        setIsEditMode(false)
         setIsNewCard(false)
         setTitle("")
         setDescription("")
         setTags([])
         setStart(new Date().toISOString().split("T")[0])
         setEnd(new Date().toISOString().split("T")[0])
-    setIsNewCard(false)
+  
   }
   const onAddCard = ()=>{
     setIsNewCard(true)
@@ -153,7 +153,7 @@ function Content_layout() {
   },[])
 
   return (
-    <div className="p-10 mt-[50px] w-full h-[100vh] flex justify-between">
+    <div className="lg:p-10 pt-[34px] px-3 mt-[50px] lg:w-full w-[800px]  h-[100vh] flex justify-between gap-5 overflow-x-scroll">
       {isNewCard && <CardModal onCancel={onCancel} isEditMode={isEditMode} setIsEditMode ={setIsEditMode}
       title={title} setTitle={setTitle}
       description={description} setDescription={setDescription}
@@ -161,6 +161,7 @@ function Content_layout() {
       submitCard={submitCard}
       setErr={setErr}
       err={err}
+      
       
       />}
      <Todo name="TO-DO" addCardTrue={true} onAddCard={onAddCard} data={todo.slice().reverse()} handleOnDelete={handleOnDelete} handlestatusForward={handlestatusForward} handleStatusBackward={handleStatusBackward} handleCardClick={handleCardClick} />

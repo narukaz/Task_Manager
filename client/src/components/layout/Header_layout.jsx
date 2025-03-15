@@ -1,4 +1,4 @@
-import { LogOut,  Moon,  MoonIcon,  MoonStarIcon,  SunIcon,  UserCircleIcon } from 'lucide-react'
+import { LogOut,   MoonIcon,  SunIcon,  UserCircleIcon } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
@@ -19,7 +19,7 @@ function Header_layout() {
   return (
 
     <div className={`absolute h-[60px] py-4 w-full ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] text-black" : "bg-gray-700 shadow-[0_4px_6px_-1px_rgba(256,256,256,0.3)] text-white" } 
-    px-9 gap-4
+    lg:px-9 px-2 gap-4
     flex items-center justify-end`} >
       
       <div className='flex h-[50px] items-center justify-center gap-4 border px-2 rounded-xl '>

@@ -26,8 +26,8 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
           "Content-Type": "application/json"
         }
       })
+     
     return data
-
 })
 
 export const UserLogout = createAsyncThunk("user/logout",async()=>{

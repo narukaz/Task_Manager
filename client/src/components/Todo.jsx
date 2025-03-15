@@ -12,13 +12,13 @@ import { useSelector } from "react-redux";
 function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusForward,handleStatusBackward, handleCardClick}) {
   const {day}=useSelector((state)=>state.theme)
   return (
-    <div className= {`w-[30%] ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-t-2xl h-[85vh]  cursor-pointer relative  gap-3 overflow-y-scroll`}>
+    <div className= {`sm:w-full sm:overflow-x-scroll lg:w-[30%]  ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-t-2xl h-[85vh]  cursor-pointer relative sm:gap-6  lg:gap-3 overflow-y-scroll`}>
       <div className="sticky flex w-full bg-gray-200  right-0 top-0  text-xl h-[6vh] items-center justify-between px-5 pt-2 rounded-t-2xl pb-1   ">
         <h3>{name}</h3>
         {addCardTrue && (
           <div
             onClick={onAddCard}
-            className="group flex gap-3 items-center bg-gray-500 hover:bg-white text-white hover:text-black justify-center hover:outline-1 rounded-full px-4"
+            className="group flex gap-3 items-center bg-gray-500 hover:bg-white text-white hover:text-black justify-center hover:outline-1 rounded-full lg:px-4 px-2"
           >
             <span>Add task</span>
             <PlusCircleIcon className="transform group-hover:rotate-180  transition-all duration-300" />

@@ -10,7 +10,7 @@ function App() {
   const {isAuthenticated} = useSelector(state=> state.auth)
   const {day}=useSelector((state)=>state.theme)
   return (
-    <div className={` ${day? "bg-white":"bg-gray-900"} h-[100vh] overflow-hidden`}>
+    <div className={` ${day? "bg-white":"bg-gray-900"} lg:h-[100vh] w-full lg:overflow-hidden overflow-x-scroll`}>
       <Routes>
         <Route
           path="/login"
