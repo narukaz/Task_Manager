@@ -44,7 +44,7 @@ TaskRouter.post("/create", async (req, res) => {
     const { title, description, start, end,tags } = req.body;
     const {_id} = req.user
 
-    console.log(title,description,start,end,_id,tags)
+    // console.log(tags)
     const user = await UserModel.findById(_id);
 
     if (!user) {
@@ -68,7 +68,7 @@ TaskRouter.post("/create", async (req, res) => {
     tags.forEach(async element =>  {
       const user = await UserModel.findOne({userId:element})
       if(!user) return
-      user.tags=[...user.tags, data._id]
+      user.tasks.push(data._id)
       await user.save()
     });
 
@@ -117,6 +117,12 @@ TaskRouter.delete("/delete", async (req,res)=>{
     await user.save()
     const task =  await TaskModel.findByIdAndDelete(cardId)
 
+    if (!task){
+      return res.status(200).json({
+        message:"task failed",
+        error:true
+      })
+    }
    res.status(200).json({
     message:"Task deleted successfully",
     error:false

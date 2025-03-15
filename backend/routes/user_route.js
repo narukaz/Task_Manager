@@ -24,6 +24,8 @@ UserRoute.get("/getUser",authentication,async(req,res)=>{
 })
 
 UserRoute.post("/login", async (req, res) => {
+
+  // console.log(req.body)
     try {
   let { userId, password } = req.body;
 

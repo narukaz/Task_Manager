@@ -5,7 +5,7 @@ const TaskSchema = new Schema({
     title : String,
     description: String,
     status:{type:String, default:"todo"} ,
-    tags:Array,
+    tags:[],
     start:Date,
     end:Date,
 })
