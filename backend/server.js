@@ -10,7 +10,7 @@ import { authentication } from "./middleware/authMiddleware.js";
 let app = express();
 
 app.use(cors({
-  origin: ["https://task-manager-pi-plum.vercel.app", "http://localhost:5173", "http://192.168.29.10:5173"],  
+  origin: "*",  
  
   credentials: true, 
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  
