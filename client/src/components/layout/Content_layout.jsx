@@ -53,6 +53,14 @@ function Content_layout() {
 
   
   const onCancel = ()=>{
+   
+        setEditId("")
+        setIsNewCard(false)
+        setTitle("")
+        setDescription("")
+        setTags([])
+        setStart(new Date().toISOString().split("T")[0])
+        setEnd(new Date().toISOString().split("T")[0])
     setIsNewCard(false)
   }
   const onAddCard = ()=>{
@@ -87,7 +95,7 @@ function Content_layout() {
     }
    
     
-    dispatch(addCard({title,description,tags,start,end,_id:"67d47297827f57cb18673a81"})).then(({payload})=>{
+    dispatch(addCard({title,description,tags,start,end})).then(({payload})=>{
       if(payload.error){
         setErr(payload.error)
         return

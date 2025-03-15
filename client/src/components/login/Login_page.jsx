@@ -20,8 +20,13 @@ function Login_page() {
             return
         }
         dispatch(UserLogin({userId,password})).then(({payload})=>{
+            console.log(payload)
             if(payload.error){
                 setError(payload.message)
+                setTimeout(() => {
+                    setError("")
+                }, 4000);
+
                 return
             }else{
                 navigate("/dashboard")
@@ -29,9 +34,7 @@ function Login_page() {
         })
         return
     }
-    useEffect(()=>{
-
-    },[])
+  
 
   
   return (

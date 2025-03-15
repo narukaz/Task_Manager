@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { PlusSquare, Target, UserPlus2, XSquare } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function CardModal({onCancel,title,setTitle,description,setDescription,setTags,submitCard,setStart,setEnd,end,start,err,setErr,isEditMode}) {
- 
+ const {day} = useSelector((state)=> state.theme)
  
   const [currTag,setCurrTag] = useState("")
   const handleAddUser = ()=>{
@@ -32,9 +32,9 @@ function CardModal({onCancel,title,setTitle,description,setDescription,setTags,s
     <>
       <div className="z-10 opacity-15 absolute right-0 top-0 w-full bg-black h-full"></div>
       <div
-        className="z-11 translate  absolute 
+        className={`z-11 translate  absolute 
 -translate-x-1/2 -translate-y-1/2 rounded-2xl
-w-[90vh] h-[65vh] bg-white left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8"
+w-[90vh] h-[65vh]  ${day? "bg-white text-black":"bg-gray-600 text-white"} left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8`}
       >
         <input
         value={title} onChange={({target}) => setTitle(target.value)}
@@ -52,7 +52,7 @@ w-[90vh] h-[65vh] bg-white left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.
           onChange={({target})=>setStart(target.valueAsDate)}
           value={start}
           defaultValue={new Date().toISOString().split("T")[0]}
-          className="p-3  rounded-2xl border-1 cursor-pointer hover:border-blue-700 "
+          className="p-3 rounded-2xl border-1 cursor-pointer hover:border-blue-700 "
           />
            <input type="date" defaultValue={new Date().toISOString().split("T")[0]}
            onChange={({target})=>setEnd(target.valueAsDate)}

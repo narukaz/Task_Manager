@@ -8,8 +8,9 @@ import { useSelector } from "react-redux";
 
 function App() {
   const {isAuthenticated} = useSelector(state=> state.auth)
+  const {day}=useSelector((state)=>state.theme)
   return (
-    <div className="bg-[#F6F6F6] h-[100vh] overflow-hidden">
+    <div className={` ${day? "bg-white":"bg-gray-900"} h-[100vh] overflow-hidden`}>
       <Routes>
         <Route
           path="/login"

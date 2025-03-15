@@ -60,7 +60,7 @@ let LoginSlice = createSlice({
         .addCase(UserLogin.fulfilled, (state,{payload})=>{
             state.error = payload.error
             state.message = payload.message
-            state.user = payload.data.name
+            state.user = payload?.data?.name||""
             state.isAuthenticated = payload.error
          })
          .addCase(UserLogin.rejected, (state)=>{
