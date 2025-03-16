@@ -10,7 +10,7 @@ let initialState={
 
 export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.get("https://13.61.194.165:8080/user/getUser",{
+  const {data} = await axios.get("https://rico-handhelds-tough-mart.trycloudflare.com/user/getUser",{
       headers: {
         "Content-Type": "application/json"
       }
@@ -21,7 +21,7 @@ export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
 
 export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://13.61.194.165:8080/user/login", {...parameter},{
+    const {data} = await axios.post("https://rico-handhelds-tough-mart.trycloudflare.com/user/login", {...parameter},{
         headers: {
           "Content-Type": "application/json"
         }
@@ -32,7 +32,7 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
 
 export const UserLogout = createAsyncThunk("user/logout",async()=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.post("http://13.61.194.165:8080/user/logout", {
+  const {data} = await axios.post("https://rico-handhelds-tough-mart.trycloudflare.com/user/logout", {
       headers: {
         "Content-Type": "application/json"
       }
@@ -43,7 +43,7 @@ export const UserLogout = createAsyncThunk("user/logout",async()=>{
 
 export const UserSignup = createAsyncThunk("user/signup", async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://13.61.194.165:8080/user/signup", {...parameter})
+    const {data} = await axios.post("https://rico-handhelds-tough-mart.trycloudflare.com/user/signup", {...parameter})
     return data
 })
 
