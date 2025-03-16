@@ -10,7 +10,7 @@ function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { day } = useSelector((state) => state.theme);
 
-  
+
   const [token, setToken] = useState(document.cookie.includes("token="));
 
  
@@ -23,7 +23,7 @@ function App() {
   return (
     <div className={`${day ? "bg-white" : "bg-gray-900"} lg:h-[100vh] w-full lg:overflow-hidden overflow-x-scroll`}>
       <Routes>
-        <Route path="/" element={<Login_page />} />
+        <Route path="/" element={token ? <Navigate to="/dashboard" /> : <Login_page />} />
 
         <Route path="/login" element={token ? <Navigate to="/dashboard" /> : <Login_page />} />
 

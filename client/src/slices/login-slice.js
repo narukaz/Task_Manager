@@ -3,7 +3,7 @@ import axios from "axios"
 
 let initialState={
     error:false,
-    isAuthenticated:document.cookie.split('=')[1] ? true:false,
+    isAuthenticated:document.cookie.includes('token=') ? true:false,
     user:"",
     message:""
 }
