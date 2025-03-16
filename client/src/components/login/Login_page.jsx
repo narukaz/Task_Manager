@@ -32,6 +32,7 @@ function Login_page() {
     
                     return
                 }else{
+                    console.log("reached dashbord")
                     navigate("/dashboard")
                 }
             })
@@ -64,8 +65,12 @@ function Login_page() {
              handleLogin(e)
             
             } className="bg-[#0b57d0] text-white w-[60%] px-8 py-2 font-medium justify-between cursor-none lg:cursor-pointer rounded-3xl hover:bg-blue-500 ">Login</button>
+           
         <p>Don't have an account?   
              <Link to={"/signup"} className="text-blue-600 underline">{"   SignUp"}</Link>
+             </p>
+             <p>Go to dashboard   
+             <Link to={"/dashboard"} className="text-blue-600 underline">{"   Dasboard"}</Link>
              </p>
     </div>
    </div>
