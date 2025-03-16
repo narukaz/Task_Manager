@@ -10,20 +10,22 @@ let initialState={
 
 export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.get("https://85ab-3-110-204-158.ngrok-free.app/user/getUser",{
+  const {data} = await axios.get("user/getUser",{
       headers: {
         "Content-Type": "application/json"
       }
     })
   return data
+  
 
 })
 
 export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://85ab-3-110-204-158.ngrok-free.app/user/login", {...parameter},{
+    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/login", {...parameter},{
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "credentials":"include"
         }
       })
      
@@ -32,7 +34,7 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
 
 export const UserLogout = createAsyncThunk("user/logout",async()=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.post("https://85ab-3-110-204-158.ngrok-free.app/user/logout", {
+  const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/logout", {
       headers: {
         "Content-Type": "application/json"
       }
@@ -43,7 +45,7 @@ export const UserLogout = createAsyncThunk("user/logout",async()=>{
 
 export const UserSignup = createAsyncThunk("user/signup", async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://85ab-3-110-204-158.ngrok-free.app/user/signup", {...parameter})
+    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/signup", {...parameter})
     return data
 })
 

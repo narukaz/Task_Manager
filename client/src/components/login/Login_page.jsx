@@ -22,7 +22,7 @@ function Login_page() {
         }
        
             dispatch(UserLogin({userId,password})).then((data)=>{
-               alert(JSON.stringify(data))
+              
                 if(data.payload.error){
                     
                     setError(payload.message)
@@ -37,10 +37,7 @@ function Login_page() {
             })
             
       .catch((error) =>
-            alert(error))
- 
-        
-       
+           console.log(error))
     }
   
 
