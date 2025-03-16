@@ -10,6 +10,7 @@ function Login_page() {
     const [error,setError]= useState("")
     const [userId,setUserId] = useState("")
     const [password,setPassword] = useState("")
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); 
     const handleLogin=(e)=>{
        
         e.preventDefault()
@@ -22,18 +23,13 @@ function Login_page() {
         }
        
             dispatch(UserLogin({userId,password})).then((data)=>{
-              
                 if(data.payload.error){
-                    
                     setError(payload.message)
                     setTimeout(() => {
                         setError("")
                     }, 4000);
     
                     return
-                }else{
-                    console.log("reached dashbord")
-                    return <Navigate to="/dashboard" />;
                 }
             })
             
@@ -41,6 +37,12 @@ function Login_page() {
            console.log(error))
     }
   
+
+    useEffect(() => {
+        if (isAuthenticated) {
+          navigate("/dashboard"); // Navigate when isAuthenticated becomes true
+        }
+      }, [isAuthenticated, navigate]);
 
   
   return (
