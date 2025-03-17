@@ -21,11 +21,11 @@ function Header_layout() {
     <div className={`absolute h-[60px] py-4 w-full ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] text-black" : "bg-gray-700 shadow-[0_4px_6px_-1px_rgba(256,256,256,0.3)] text-white" } 
     lg:px-9 px-2 gap-4
     flex items-center justify-between`} >
-      <h1 className={`${day? "text-black" : "text-white"} font-mono text-2xl font-bold`}>Task Manager</h1>
+      <h1 className={`${day? "text-black" : "text-white"} font-mono lg:text-2xl text-xl font-bold`}>Task Manager</h1>
       <div className='flex items-center justify-evenly gap-4'>
       
       <div className='flex h-[50px] items-center justify-evenly border px-2 gap-2 rounded-xl '>
-        <p className='font-bold lg:text-[30px] text-[20px]'>{user}</p>
+        <p className='font-bold '>{user}</p>
         
         <UserCircleIcon size={30} />
       
