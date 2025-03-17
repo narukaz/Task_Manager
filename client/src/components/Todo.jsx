@@ -18,7 +18,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
         {addCardTrue && (
           <div
             onClick={onAddCard}
-            className="group flex gap-3 items-center bg-gray-500 hover:bg-white text-white hover:text-black justify-center hover:outline-1 rounded-full lg:px-4 px-2"
+            className="group flex gap-3 items-center bg-blue-500 hover:bg-white text-white hover:text-blue-500 justify-center hover:outline-1 rounded-full lg:px-4 px-2"
           >
             <span>Add task</span>
             <PlusCircleIcon className="transform group-hover:rotate-180  transition-all duration-300" />
