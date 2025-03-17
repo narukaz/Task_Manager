@@ -13,7 +13,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
   const {day}=useSelector((state)=>state.theme)
   return (
     <div className= {`sm:w-full sm:overflow-x-scroll lg:w-[30%]  ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-t-2xl h-[85vh]  cursor-pointer relative sm:gap-6  lg:gap-3 overflow-y-scroll`}>
-      <div className="sticky flex w-full bg-gray-200  right-0 top-0  text-xl h-[6vh] items-center justify-between px-5 pt-2 rounded-t-2xl pb-1   ">
+      <div className="sticky flex w-full bg-gray-200  right-0 top-0  text-xl h-[6vh] items-center justify-between px-5 pt-2 rounded-2xl  pb-1   ">
         <h3>{name}</h3>
         {addCardTrue && (
           <div
@@ -34,7 +34,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
             <h1 className="my-2 text-xl px-4 font-bold ">
               {item.title}
             </h1>
-            <div className={`h-1  ${day? "bg-gray-200": "bg-gray-500" } w-[60%] mx-4`}></div>
+            <div className={`h-[2px]  ${day? "bg-gray-200": "bg-gray-500" } w-[60%] mx-4`}></div>
             <p className="px-4 my-3 max-h-20 overflow-y-scroll font-mono ">
              {item.description}
             </p>
