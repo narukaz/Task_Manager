@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken"
 import { authentication } from "../middleware/authMiddleware.js";
 
 
+
 let UserRoute = express.Router();
 
 UserRoute.post("/logout", (req, res) => {
@@ -56,7 +57,8 @@ UserRoute.post("/login", async (req, res) => {
       let token = jwt.sign({_id:response._id,name:response.name},"abcdefghijklmnopqrstuvwxys",{expiresIn:'1h'})
       res.cookie('token',token,{
         httpOnly:true,
-        sameSite:"None"
+        sameSite:"None",
+        secure:process.env.NODE_ENV === "production"
 
       })
         return res.status(200).json({

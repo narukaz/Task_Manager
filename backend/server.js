@@ -5,7 +5,8 @@ import TaskRouter from "./routes/task_manager_routes.js";
 import UserRoute from "./routes/user_route.js"
 import cors from "cors"
 import { authentication } from "./middleware/authMiddleware.js";
-
+import dotenv from "dotenv"
+dotenv.config()
 
 let app = express();
 
