@@ -22,10 +22,10 @@ function Header_layout() {
     lg:px-9 px-2 gap-4
     flex items-center justify-end`} >
       
-      <div className='flex h-[50px] items-center justify-center gap-2 border px-2 rounded-xl '>
+      <div className='flex h-[50px] items-center justify-center border gap-3 px-2 rounded-xl '>
         <p className='font-bold'>{user}</p>
         <div className='w-15 h-15 rounded-full flex items-center justify-center m-0 p-0 '>
-        <UserCircleIcon size={30}/>
+        <UserCircleIcon size={30} spacing={0}/>
         </div>
 
         </div>
