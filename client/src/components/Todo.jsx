@@ -43,7 +43,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                  e.stopPropagation()
                  handleCardClick(item)
               }}>
-                {"Edit"}
+                <p>Edit</p>
                 <PenIcon size={20} />
               </div>
               
@@ -51,13 +51,13 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                  e.stopPropagation()
                  handlestatusForward(item.status,item._id)}
               }>
-                {"Move right"}
+                <p>Move right</p>
                 <MoveRight size={20} />
               </div>}
               { item.status !="todo" &&   <div className={`w-14 h-10 rounded-2xl  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1`} onClick={(e)=>{
                  e.stopPropagation()
                 handleStatusBackward(item.status,item._id)}}>
-                {"Move left"}
+                <p>Move left</p>
                 <MoveLeft size={20} />
               </div>}
 
@@ -69,7 +69,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                 e.stopPropagation()
                 handleOnDelete(item._id)}}
               className={`w-10 h-10  rounded-full  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1`}>
-                {"Delete"}
+                <p>Delete</p>
                 <Trash size={20} />
               </div>
             </div>
