@@ -101,10 +101,9 @@ function Content_layout() {
 
     setTitle(item.title);
     setDescription(item.description);
-    let startDate = item.start.split("T")[0]
-    let endDate = item.start.split("T")[0]
-    setStart(startDate);
-    setEnd(endDate);
+   
+    setStart(item.start);
+    setEnd(item.end);
     setEditId(item._id);
     setTags(item.tags);
   };
