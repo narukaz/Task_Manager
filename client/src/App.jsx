@@ -22,12 +22,12 @@ function App() {
   return (
     <div className={`${day ? "bg-white" : "bg-gray-900"} lg:h-[100vh] w-full lg:overflow-hidden overflow-x-scroll`}>
       <Routes>
-        <Route path="/" element={token ? <Navigate to="/dashboard" /> : <Login_page />} />
-        <Route path="/login" element={token ? <Navigate to="/dashboard" /> : <Login_page />} />
-        <Route path="/signup" element={token ? <Navigate to="/dashboard" /> : <Signup_page />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login_page />} />
+        <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login_page />} />
+        <Route path="/signup" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Signup_page />} />
         <Route
           path="/dashboard"
-          element={token ? (
+          element={isAuthenticated ? (
             <>
               <Header_layout />
               <Content_layout />
