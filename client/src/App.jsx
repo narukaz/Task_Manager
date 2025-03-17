@@ -1,7 +1,7 @@
-import { Route } from "lucide-react";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, Routes } from "react-router-dom";
+import { Navigate, Routes,Route } from "react-router-dom";
 import Login_page from "./components/login/Login_page"
 import Signup_page from "./components/signup/Signup_page";
 import Header_layout from "./components/layout/Header_layout";
