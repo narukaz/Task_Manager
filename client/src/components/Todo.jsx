@@ -39,7 +39,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
              {item.description}
             </p>
             <div className={`flex flex-row-reverse items-center px-4 py-2  ${item.status == "inProgress" ? "bg-yellow-500 text-black ": item.status == "finished" ? "bg-green-600 text-white" : "bg-gray-100 text-black"  } gap-2 rounded-xl`}>
-              <div className={`w-15 h-10   ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-full flex items-center justify-evenly hover:outline-1 gap-2`} onClick={(e)=>{
+              <div className={`w-15 h-10   ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-full flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
                  e.stopPropagation()
                  handleCardClick(item)
               }}>
@@ -47,14 +47,14 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                 <PenIcon size={20} />
               </div>
               
-              { item.status !="finished" &&   <div className={`w-25 h-10  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-2xl flex items-center justify-evenly hover:outline-1 gap-2`} onClick={(e)=>{
+              { item.status !="finished" &&   <div className={`w-35 h-10  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-2xl flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
                  e.stopPropagation()
                  handlestatusForward(item.status,item._id)}
               }>
                 <p className="text-[15px]">Move right</p>
                 <MoveRight size={20} />
               </div>}
-              { item.status !="todo" &&   <div className={`w-25 h-10 rounded-2xl  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2`} onClick={(e)=>{
+              { item.status !="todo" &&   <div className={`w-35 h-10 rounded-2xl  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
                  e.stopPropagation()
                 handleStatusBackward(item.status,item._id)}}>
                 <p className="text-[15px]">Move left</p>
@@ -68,7 +68,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
               onClick={(e)=>{
                 e.stopPropagation()
                 handleOnDelete(item._id)}}
-              className={`w-20 h-10  rounded-full  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2`}>
+              className={`w-20 h-10  rounded-full  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2 px-2`}>
                 <p className="text-[15px]">Delete</p>
                 <Trash size={20} />
               </div>
