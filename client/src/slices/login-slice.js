@@ -10,7 +10,8 @@ let initialState={
 
 export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.get("http://localhost:8080/user/getUser",{
+  const {data} = await axios.get("https://task-manager-muta.onrender.com/user/getUser",{
+   
       headers: {
         "Content-Type": "application/json"
       }
@@ -22,7 +23,7 @@ export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
 
 export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("http://localhost:8080/user/login", {...parameter},{
+    const {data} = await axios.post("https://task-manager-muta.onrender.com/user/login", {...parameter},{
         headers: {
           "Content-Type": "application/json",
           "credentials":"include"
@@ -34,7 +35,7 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
 
 export const UserLogout = createAsyncThunk("user/logout",async()=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.post("http://localhost:8080/user/logout", {
+  const {data} = await axios.post("https://task-manager-muta.onrender.com/user/logout", {
       headers: {
         "Content-Type": "application/json"
       }
@@ -45,7 +46,7 @@ export const UserLogout = createAsyncThunk("user/logout",async()=>{
 
 export const UserSignup = createAsyncThunk("user/signup", async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("http://localhost:8080/user/signup", {...parameter})
+    const {data} = await axios.post("https://task-manager-muta.onrender.com/user/signup", {...parameter})
     return data
 })
 
