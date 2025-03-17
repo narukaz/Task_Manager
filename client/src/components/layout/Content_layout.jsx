@@ -97,9 +97,10 @@ function Content_layout() {
     console.log(item)
     setIsEditMode(true);
     setIsNewCard(true);
+
+    
     setTitle(item.title);
     setDescription(item.description);
-    
     setStart(item.start);
     setEnd(item.end);
     setEditId(item._id);
