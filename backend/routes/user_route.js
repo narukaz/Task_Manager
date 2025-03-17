@@ -56,8 +56,10 @@ UserRoute.post("/login", async (req, res) => {
     if (hashPassword) {
       let token = jwt.sign({_id:response._id,name:response.name},"abcdefghijklmnopqrstuvwxys",{expiresIn:'1h'})
       res.cookie('token',token,{
-        httpOnly:true,
-        sameSite:"None",
+        httpOnly: true,    // Prevents JavaScript access (security best practice)
+    secure: true,      // Ensures it's sent only over HTTPS
+    sameSite: "None",  // Required for cross-origin requests (CORS)
+    path: "/",
         secure:process.env.NODE_ENV === "production"
 
       })
