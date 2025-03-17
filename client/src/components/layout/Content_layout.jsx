@@ -98,11 +98,13 @@ function Content_layout() {
     setIsEditMode(true);
     setIsNewCard(true);
 
-    
+
     setTitle(item.title);
     setDescription(item.description);
-    setStart(item.start);
-    setEnd(item.end);
+    let startDate = item.start.split("T")[0]
+    let endDate = item.start.split("T")[0]
+    setStart(startDate);
+    setEnd(endDate);
     setEditId(item._id);
     setTags(item.tags);
   };
