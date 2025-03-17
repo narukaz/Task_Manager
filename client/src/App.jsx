@@ -15,11 +15,9 @@ import Content_layout from "./components/layout/Content_layout";
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { day } = useSelector((state) => state.theme);
-  const [token, setToken] = useState(false);
 
-  useEffect(() => {
-    setToken(document.cookie.includes("token="));
-  }, []);
+
+  const token = useMemo(() => document.cookie.includes("token="), []);
 
   return (
     <div className={`${day ? "bg-white" : "bg-gray-900"} lg:h-[100vh] w-full lg:overflow-hidden overflow-x-scroll`}>
