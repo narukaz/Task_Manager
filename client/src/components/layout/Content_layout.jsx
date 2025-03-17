@@ -117,6 +117,8 @@ function Content_layout() {
           description={description}
           setDescription={setDescription}
           tags={tags}
+          start={start}
+          end={end}
           setTags={setTags}
           setEnd={setEnd}
           setStart={setStart}
