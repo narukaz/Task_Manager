@@ -124,7 +124,7 @@ function Content_layout() {
           err={err}
         />
       )}
-      <Todo name="TO-DO" addCardTrue={true} onAddCard={() => setIsNewCard(true)} data={todo.slice().reverse()} handleOnDelete={handleOnDelete} handlestatusForward={handlestatusForward} handleStatusBackward={handleStatusBackward} handleCardClick={handleCardClick} />
+      <Todo name="Backlog" addCardTrue={true} onAddCard={() => setIsNewCard(true)} data={todo.slice().reverse()} handleOnDelete={handleOnDelete} handlestatusForward={handlestatusForward} handleStatusBackward={handleStatusBackward} handleCardClick={handleCardClick} />
       <Todo name="In Process" data={inProcess.slice().reverse()} handleOnDelete={handleOnDelete} handlestatusForward={handlestatusForward} handleStatusBackward={handleStatusBackward} handleCardClick={handleCardClick} />
       <Todo name="Finished" data={finished.slice().reverse()} handleOnDelete={handleOnDelete} handlestatusForward={handlestatusForward} handleStatusBackward={handleStatusBackward} handleCardClick={handleCardClick} />
     </div>
