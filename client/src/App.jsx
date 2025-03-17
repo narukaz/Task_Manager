@@ -1,3 +1,13 @@
+import { Route } from "lucide-react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Routes } from "react-router-dom";
+
+
+
+
+
+
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { day } = useSelector((state) => state.theme);
