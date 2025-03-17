@@ -1,11 +1,16 @@
 import React from "react";
 import {
+  ClipboardList,
+  FileStack,
+  ListChecks,
+  ListTodo,
   MoveLeft,
   MoveRight,
   PenIcon,
   PlusCircleIcon,
   Trash,
   UserPlus,
+  Workflow,
 } from "lucide-react";
 import { useSelector } from "react-redux";
 
@@ -14,7 +19,11 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
   return (
     <div className= {`sm:w-full sm:overflow-x-scroll lg:w-[30%]  ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-2xl h-[85vh]  cursor-pointer relative sm:gap-6  lg:gap-3 overflow-y-scroll`}>
       <div className="sticky flex w-full bg-gray-200  right-0 top-0  text-xl h-[6vh] items-center justify-between px-5 pt-2 rounded-2xl  pb-1   ">
-        <h3>{name}</h3>
+        
+        <div className="flex gap-2 items-center">
+        <h3>{name }</h3>
+        {name =="Backlog" ? <ListTodo />: name =="in Process" ? <ClipboardList size={30} /> : <ListChecks size={30} />}
+        </div>
         {addCardTrue && (
           <div
             onClick={onAddCard}
@@ -43,7 +52,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
              
               <p>{"end: "+item.end.replaceAll("-", "/")}</p>
             </div>
-            <div className={`flex flex-row-reverse items-center px-4 py-2  ${item.status == "inProgress" ? "bg-yellow-500 text-black ": item.status == "finished" ? "bg-green-600 text-white" : "bg-gray-100 text-black"  } gap-2 rounded-b-xl`}>
+            <div className={`flex flex-row-reverse items-center px-4 py-2  ${item.status == "inProgress" ? "bg-[#FFD54F] text-black ": item.status == "finished" ? "bg-green-600 text-white" : "bg-gray-100 text-black"  } gap-2 rounded-b-xl`}>
               <div className={`w-15 h-10   ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-full flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
                  e.stopPropagation()
                  handleCardClick(item)
