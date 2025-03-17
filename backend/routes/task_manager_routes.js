@@ -58,8 +58,8 @@ TaskRouter.post("/create", async (req, res) => {
       title,
       description,
       tags,
-      start: start ,
-      end:  end ,
+      start: start || new Date().toISOString().split("T")[0] ,
+      end:  end || new Date().toISOString().split("T")[0],
       status: "todo",
     });
     
@@ -92,7 +92,12 @@ TaskRouter.post("/create", async (req, res) => {
 });
 TaskRouter.post("/edit",async(req,res)=>{
     const {_id,...Data} = req.body
-    
+    if(Data.start ==  ""){
+      Data.start = new Date().toISOString().split("T")[0]
+    }
+    if(Data.end == ""){
+      Data.end = new Date().toISOString().split("T")[0]
+    }
    
     let task = await TaskModel.findByIdAndUpdate(_id,Data,{new:true})
     // console.log(task)
