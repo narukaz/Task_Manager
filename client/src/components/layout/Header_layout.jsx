@@ -22,7 +22,7 @@ function Header_layout() {
     lg:px-9 px-2 gap-4
     flex items-center justify-around`} >
       <h1 className={`${day? "text-black" : "text-white"} font-mono`}>Task Manager</h1>
-      <>
+      <div>
       
       <div className='flex h-[50px] items-center justify-evenly border px-2 gap-2 rounded-xl '>
         <p className='font-bold'>{user}</p>
@@ -39,7 +39,7 @@ function Header_layout() {
         className='w-10 h-10 rounded-xl hover:text-blue-600 hover:border hover:border-blue-600 flex items-center justify-center  cursor-pointer'>
         <LogOut size={30}/>
         </div>
-        </>
+        </div>
     </div>
 
   )
