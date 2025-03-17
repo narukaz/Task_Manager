@@ -13,7 +13,8 @@ export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
   const {data} = await axios.get("https://task-manager-muta.onrender.com/user/getUser",{
    
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "withCredentials": true,
       }
     })
   return data
@@ -26,7 +27,7 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
     const {data} = await axios.post("https://task-manager-muta.onrender.com/user/login", {...parameter},{
         headers: {
           "Content-Type": "application/json",
-          "credentials":"include"
+          "withCredentials": true,
         }
       })
      
@@ -38,6 +39,7 @@ export const UserLogout = createAsyncThunk("user/logout",async()=>{
   const {data} = await axios.post("https://task-manager-muta.onrender.com/user/logout", {
       headers: {
         "Content-Type": "application/json"
+        
       }
     })
   return data
