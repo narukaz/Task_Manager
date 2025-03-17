@@ -22,7 +22,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
         
         <div className="flex gap-2 items-center">
         <h3>{name }</h3>
-        {name =="Backlog" ? <ListTodo />: name =="in Process" ? <ClipboardList size={30} /> : <ListChecks size={30} />}
+        {name =="Backlog" ? <ListTodo />: name =="In Process" ? <ClipboardList size={30} /> : <ListChecks size={30} />}
         </div>
         {addCardTrue && (
           <div
