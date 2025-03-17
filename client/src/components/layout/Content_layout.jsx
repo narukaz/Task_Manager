@@ -81,10 +81,6 @@ function Content_layout() {
     })
   },[])
 
-  useEffect(() => {
-    dispatch(getAllCards());
-  }, [dispatch]);
-
   const handleOnDelete = (id) => {
     dispatch(deleteCard(id)).then(({ payload }) => {
       if (!payload.error) {
