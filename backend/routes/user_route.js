@@ -66,7 +66,8 @@ UserRoute.post("/login", async (req, res) => {
         return res.status(200).json({
         message: "Successfully login",
         error: false,
-        name:response.name
+        name:response.name,
+        token
       });
       
     }
