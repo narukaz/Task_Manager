@@ -24,9 +24,9 @@ function Header_layout() {
       
       <div className='flex h-[50px] items-center justify-evenly border rounded-xl '>
         <p className='font-bold'>{user}</p>
-        <div className='w-15 h-15 rounded-full flex items-center justify-center m-0 p-0 '>
-        <UserCircleIcon size={30}  className='m-0 p-0'/>
-        </div>
+        
+        <UserCircleIcon size={30} />
+      
 
         </div>
         {day? <SunIcon onClick={()=>{dispatch(changeTheme())}} size={30} className='hover:text-yellow-500  cursor-pointer transform hover:rotate-180 duration-300'/> :
