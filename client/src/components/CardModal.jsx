@@ -50,15 +50,19 @@ lg:w-[90vh] w-[45vh] lg:h-[65vh] h-[40vh]  ${day? "bg-white text-black":"bg-gray
         />
         <div className="flex justify-start gap-5 items-center">
           <input type="date"
-          onChange={({target})=>{setStart(target.valueAsDate)
-            console.log(target.valueAsDate)
+          onChange={({target})=>{
+            let date = target.value
+            setStart(date)
+           
           }}
           value={start}
           defaultValue={new Date().toISOString().split("T")[0]}
           className="p-3 rounded-2xl border-1 cursor-pointer hover:border-blue-700 "
           />
            <input type="date" defaultValue={new Date().toISOString().split("T")[0]}
-           onChange={({target})=>setEnd(target.valueAsDate)}
+           onChange={({target})=>{
+            let date = target.value
+            setEnd(date)}}
            value={end}
           className="p-3  rounded-2xl border-1 cursor-pointer hover:border-blue-700 "
           />
