@@ -9,16 +9,9 @@ import { useEffect, useState } from "react";
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const { day } = useSelector((state) => state.theme);
-
-
-  const [token, setToken] = useState(document.cookie.includes("token="));
+  const token = document.cookie.includes("token=")
 
  
-  useEffect(() => {
-    const checkToken = () => setToken(document.cookie.includes("token="));
-    window.addEventListener("storage", checkToken);
-    return () => window.removeEventListener("storage", checkToken);
-  }, []);
 
   return (
     <div className={`${day ? "bg-white" : "bg-gray-900"} lg:h-[100vh] w-full lg:overflow-hidden overflow-x-scroll`}>
@@ -27,7 +20,7 @@ function App() {
 
         <Route path="/login" element={token ? <Navigate to="/dashboard" /> : <Login_page />} />
 
-        <Route path="/signup" element={token || isAuthenticated ? <Navigate to="/dashboard" /> : <Signup_page />} />
+        <Route path="/signup" element={token ? <Navigate to="/dashboard" /> : <Signup_page />} />
 
         <Route path="/dashboard" element={token ? (
             <>
@@ -39,8 +32,6 @@ function App() {
           )}
         />
       </Routes>
-
-      <Outlet />
     </div>
   );
 }

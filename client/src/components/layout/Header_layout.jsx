@@ -1,12 +1,12 @@
 import { LogOut,   MoonIcon,  SunIcon,  UserCircleIcon } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+
 import { changeTheme } from '../../slices/theme-slice'
 
 function Header_layout() {
   const dispatch = useDispatch()
-  const name = useSelector((state)=> state.auth.user)
+  const {user} = useSelector((state)=> state.auth)
   const {day} = useSelector((state)=> state.theme)
   
   const handleLogout = ()=>{
@@ -23,7 +23,7 @@ function Header_layout() {
     flex items-center justify-end`} >
       
       <div className='flex h-[50px] items-center justify-center gap-4 border px-2 rounded-xl '>
-        <p className='font-bold'>{name}</p>
+        <p className='font-bold'>{user}</p>
         <div className='w-15 h-15 rounded-full flex items-center justify-center m-0 p-0 '>
         <UserCircleIcon size={30}/>
         </div>

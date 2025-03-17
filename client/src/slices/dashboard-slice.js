@@ -8,7 +8,7 @@ let initialState={
 
 export const addCard = createAsyncThunk("dashboard/create", async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://85ab-3-110-204-158.ngrok-free.app/task/create", {...parameter},{
+    const {data} = await axios.post("http://localhost:8080/task/create", {...parameter},{
         headers: {
           "Content-Type": "application/json"
         }
@@ -18,7 +18,7 @@ export const addCard = createAsyncThunk("dashboard/create", async(parameter)=>{
 
 export const getAllCards = createAsyncThunk("dashboard/getAll", async()=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/task/get",{},{
+    const {data} = await axios.post("http://localhost:8080/task/get",{},{
         headers: {
           "Content-Type": "application/json"
         }
@@ -29,7 +29,7 @@ export const getAllCards = createAsyncThunk("dashboard/getAll", async()=>{
 
 export const updateCard = createAsyncThunk("dashboard/update", async(params)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/task/edit", params,{
+    const {data} = await axios.post("http://localhost:8080/task/edit", params,{
         headers: {
           "Content-Type": "application/json"
         }
@@ -39,7 +39,7 @@ export const updateCard = createAsyncThunk("dashboard/update", async(params)=>{
 
 export const deleteCard = createAsyncThunk("dashboard/delete", async(cardId)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.delete("https://3da8-3-110-204-158.ngrok-free.app/task/delete",{ data:{cardId}},{
+    const {data} = await axios.delete("http://localhost:8080/task/delete",{ data:{cardId}},{
         headers: {
           "Content-Type": "application/json"
         }

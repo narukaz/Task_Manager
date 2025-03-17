@@ -3,14 +3,14 @@ import axios from "axios"
 
 let initialState={
     error:false,
-    isAuthenticated:document.cookie.includes('token=') ? true:false,
+    isAuthenticated:false,
     user:"",
     message:""
 }
 
 export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.get("user/getUser",{
+  const {data} = await axios.get("http://localhost:8080/user/getUser",{
       headers: {
         "Content-Type": "application/json"
       }
@@ -22,7 +22,7 @@ export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
 
 export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/login", {...parameter},{
+    const {data} = await axios.post("http://localhost:8080/user/login", {...parameter},{
         headers: {
           "Content-Type": "application/json",
           "credentials":"include"
@@ -34,7 +34,7 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
 
 export const UserLogout = createAsyncThunk("user/logout",async()=>{
   axios.defaults.withCredentials=true
-  const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/logout", {
+  const {data} = await axios.post("http://localhost:8080/user/logout", {
       headers: {
         "Content-Type": "application/json"
       }
@@ -45,7 +45,7 @@ export const UserLogout = createAsyncThunk("user/logout",async()=>{
 
 export const UserSignup = createAsyncThunk("user/signup", async(parameter)=>{
     axios.defaults.withCredentials=true
-    const {data} = await axios.post("https://3da8-3-110-204-158.ngrok-free.app/user/signup", {...parameter})
+    const {data} = await axios.post("http://localhost:8080/user/signup", {...parameter})
     return data
 })
 
@@ -60,10 +60,11 @@ let LoginSlice = createSlice({
         builder
         .addCase(UserLogin.pending, (state)=>{state.error = false })
         .addCase(UserLogin.fulfilled, (state,{payload})=>{
+          console.log(payload)
             state.error = payload.error
             state.message = payload.message
-            state.user = payload?.data?.name||""
-            state.isAuthenticated = payload.error
+            state.user = payload.name
+            state.isAuthenticated = payload.message == "Successfully login" ? true  :false
          })
          .addCase(UserLogin.rejected, (state)=>{
             state.data ={
@@ -75,10 +76,11 @@ let LoginSlice = createSlice({
 
          .addCase(GetUser.pending, (state)=>{state.error = false })
         .addCase(GetUser.fulfilled, (state,{payload})=>{
+         
             state.error = payload.error
             state.message = payload.message
-            state.user = payload.data.name
-            state.isAuthenticated = !payload.error
+            state.user = payload.name
+            state.isAuthenticated = payload.message == "Successfully login" ? true  :false
          })
          .addCase(GetUser.rejected, (state)=>{
             state.data ={

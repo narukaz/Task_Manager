@@ -1,5 +1,5 @@
-import React, { useEffect, useId, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { UserLogin } from "../../slices/login-slice";
 import { useSelector,useDispatch } from "react-redux";
 
@@ -23,8 +23,9 @@ function Login_page() {
         }
        
             dispatch(UserLogin({userId,password})).then((data)=>{
-                if(data.payload.error){
-                    setError(payload.message)
+                console.log(data)
+                if(data?.payload?.error || data?.error?.message){
+                    setError(data?.payload?.error|| data.error.message)
                     setTimeout(() => {
                         setError("")
                     }, 4000);
@@ -33,14 +34,20 @@ function Login_page() {
                 }
             })
             
-      .catch((error) =>
-           console.log(error))
+      .catch((error)=>{
+        console.log(error)
+           setError(error.message)
+      setTimeout(() => {
+        setError("")
+    }, 4000)
+})
+    
     }
   
 
     useEffect(() => {
         if (isAuthenticated) {
-          navigate("/dashboard"); // Navigate when isAuthenticated becomes true
+          navigate("/dashboard"); 
         }
       }, [isAuthenticated, navigate]);
 
