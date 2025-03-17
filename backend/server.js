@@ -15,7 +15,7 @@ app.use(
     origin: "https://task-manager-pi-plum.vercel.app", 
     methods: ["GET","POST","PUT","DELETE"],
     credentials: true, 
-    allowedHeaders: ["Content-Type", "Authorization"],//this is new
+    allowedHeaders: ["Content-Type", "Authorization","withCredentials"],//this is new
 
 
 
