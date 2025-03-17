@@ -43,7 +43,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                  e.stopPropagation()
                  handleCardClick(item)
               }}>
-                <p className="text-[15px]">Edit</p>
+                <p className="text-[10px]">Edit</p>
                 <PenIcon size={20} />
               </div>
               
@@ -51,14 +51,15 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                  e.stopPropagation()
                  handlestatusForward(item.status,item._id)}
               }>
-                <p className="text-[15px]">Move right</p>
+                <p className="text-[10px]">Move right</p>
                 <MoveRight size={20} />
               </div>}
               { item.status !="todo" &&   <div className={`w-35 h-10 rounded-2xl  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
                  e.stopPropagation()
                 handleStatusBackward(item.status,item._id)}}>
-                <p className="text-[15px]">Move left</p>
+                
                 <MoveLeft size={20} />
+                <p className="text-[10px]">Move left</p>
               </div>}
 
             
@@ -69,7 +70,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
                 e.stopPropagation()
                 handleOnDelete(item._id)}}
               className={`w-20 h-10  rounded-full  ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } flex items-center justify-evenly hover:outline-1 gap-2 px-2`}>
-                <p className="text-[15px]">Delete</p>
+                <p className="text-[10px]">Delete</p>
                 <Trash size={20} />
               </div>
             </div>
