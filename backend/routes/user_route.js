@@ -52,7 +52,7 @@ UserRoute.post("/login", async (req, res) => {
 
 
     const hashPassword = await bcrypt.compare(password,response.password)
-    console.log(hashPassword)
+   
     if (hashPassword) {
       let token = jwt.sign({_id:response._id,name:response.name},"abcdefghijklmnopqrstuvwxys",{expiresIn:'1h'})
       res.cookie('token',token,{
