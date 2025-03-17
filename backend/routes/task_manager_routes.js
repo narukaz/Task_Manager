@@ -78,7 +78,7 @@ TaskRouter.post("/create", async (req, res) => {
         error: true,
       });
     }
-s
+
     user.tasks = [...user.tasks, data._id];
     await user.save();
 
