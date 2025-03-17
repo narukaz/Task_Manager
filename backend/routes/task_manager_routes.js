@@ -86,7 +86,7 @@ s
   } catch (error) {
     res.status(500).json({
       error: true,
-      Message: "internal server error",
+      Message: error.message,
     });
   }
 });
