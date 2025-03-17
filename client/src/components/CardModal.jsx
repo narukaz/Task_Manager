@@ -35,7 +35,7 @@ function CardModal({onCancel,title,setTitle,description,setDescription,setTags,s
       <div
         className={`z-11 translate  absolute 
 -translate-x-1/2 -translate-y-1/2 rounded-2xl
-lg:w-[90vh] w-[45vh] lg:h-auto h-[40vh]  ${day? "bg-white text-black":"bg-gray-600 text-white"} left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8`}
+lg:w-[90vh] w-[45vh] h-auto lg:h-auto h-[40vh]  ${day? "bg-white text-black":"bg-gray-600 text-white"} left-1/2 top-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] flex flex-col gap-4 p-8`}
       >
         <input
         value={title} onChange={({target}) => setTitle(target.value)}
@@ -45,7 +45,7 @@ lg:w-[90vh] w-[45vh] lg:h-auto h-[40vh]  ${day? "bg-white text-black":"bg-gray-6
         />
         <textarea
         value={description} onChange={({target}) => setDescription(target.value)}
-          className="w-full p-3 min-h-[100px] rounded-2xl hover:border-blue-400 border-[1.5px] outline-0 lg:min-h-[200px] lg:max-h-[300px]"
+          className="w-full p-3 min-h-[100px] max-h-[100px]  rounded-2xl hover:border-blue-400 border-[1.5px] outline-0 lg:min-h-[200px] lg:max-h-[300px]"
           placeholder="Enter Description....... "
         />
         <div className="flex justify-start gap-5 items-center">
