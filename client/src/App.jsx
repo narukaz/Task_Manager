@@ -2,6 +2,10 @@ import { Route } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Routes } from "react-router-dom";
+import Login_page from "./components/login/Login_page"
+import Signup_page from "./components/signup/Signup_page";
+import Header_layout from "./components/layout/Header_layout";
+import Content_layout from "./components/layout/Content_layout";
 
 
 
