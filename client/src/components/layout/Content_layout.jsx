@@ -100,7 +100,7 @@ function Content_layout() {
   };
 
   return (
-    <div className="lg:p-10 pt-[34px] px-3 mt-[50px] lg:w-full w-[1000px] h-[100vh] flex justify-between gap-5 overflow-x-scroll">
+    <div className="lg:p-10 pt-[34px] px-3 mt-[50px] lg:w-full w-full h-[100vh] flex justify-between gap-5 overflow-x-scroll">
       {isNewCard && (
         <CardModal
           onCancel={resetForm}
