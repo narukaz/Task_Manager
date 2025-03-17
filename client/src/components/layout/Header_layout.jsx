@@ -20,8 +20,8 @@ function Header_layout() {
 
     <div className={`absolute h-[60px] py-4 w-full ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] text-black" : "bg-gray-700 shadow-[0_4px_6px_-1px_rgba(256,256,256,0.3)] text-white" } 
     lg:px-9 px-2 gap-4
-    flex items-center justify-end`} >
-      
+    flex items-center justify-around`} >
+      <h1 className={`${day? "text-white" : "text-black"} font-mono`}>Task Manager</h1>
       <div className='flex h-[50px] items-center justify-evenly border px-2 gap-2 rounded-xl '>
         <p className='font-bold'>{user}</p>
         
