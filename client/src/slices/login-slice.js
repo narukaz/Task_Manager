@@ -24,11 +24,13 @@ export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
 })
 
 export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
+  const token = localStorage.getItem("jwtToken");
     axios.defaults.withCredentials=true
     const {data} = await axios.post("https://task-manager-muta.onrender.com/user/login", {...parameter},{
         headers: {
           "Content-Type": "application/json",
-          "withCredentials": true,
+           "Authorization": `Bearer ${token}`
+ 
         }
       })
 
