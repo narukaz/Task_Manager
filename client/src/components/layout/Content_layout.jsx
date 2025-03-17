@@ -75,11 +75,9 @@ function Content_layout() {
     });
   };
 
-  // useEffect(()=>{
-  //   dispatch(GetUser()).then(()=>{
-  //     dispatch(getAllCards())
-  //   })
-  // },[])
+  useEffect(()=>{
+      dispatch(getAllCards())
+  },[dispatch])
 
   const handleOnDelete = (id) => {
     dispatch(deleteCard(id)).then(({ payload }) => {
