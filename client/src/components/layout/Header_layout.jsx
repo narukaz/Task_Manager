@@ -22,7 +22,7 @@ function Header_layout() {
     lg:px-9 px-2 gap-4
     flex items-center justify-between`} >
       <h1 className={`${day? "text-black" : "text-white"} font-mono text-2xl font-bold`}>Task Manager</h1>
-      <div className='flex items-center justify-around'>
+      <div className='flex items-center justify-evenly '>
       
       <div className='flex h-[50px] items-center justify-evenly border px-2 gap-2 rounded-xl '>
         <p className='font-bold'>{user}</p>
