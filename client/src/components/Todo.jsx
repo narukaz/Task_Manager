@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusForward,handleStatusBackward, handleCardClick}) {
   const {day}=useSelector((state)=>state.theme)
   return (
-    <div className= {`lg:min-h-[30%]  min-w-auto max-w-[300px] lg:w-[30%]  ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-2xl h-[85vh]  cursor-pointer relative sm:gap-6  lg:gap-3 overflow-y-scroll`}>
+    <div className= {`lg:min-h-[30%]  min-w-auto max-w-[400px] lg:w-[30%]  ${day? "bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]  hover:shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3)]": "bg-gray-800 hover:shadow-[0_4px_6px_-1px_rgba(256,256,256,0.2)]"} rounded-2xl h-[85vh]  cursor-pointer relative sm:gap-6  lg:gap-3 overflow-y-scroll`}>
       <div className="sticky flex w-full bg-gray-200  right-0 top-0  text-xl h-[6vh] items-center justify-between px-5 pt-2 rounded-2xl  pb-1   ">
         
         <div className="flex gap-2 items-center">
@@ -27,7 +27,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
         {addCardTrue && (
           <div
             onClick={onAddCard}
-            className="group flex gap-3 items-center bg-blue-500 hover:bg-white text-white hover:text-blue-500 justify-center hover:outline-1 rounded-full lg:px-4 px-2"
+            className="group flex lg:gap-3 gap-2 items-center bg-blue-500 hover:bg-white text-white hover:text-blue-500 justify-center hover:outline-1 rounded-full lg:px-4  px-1"
           >
             <span>Add task</span>
             <PlusCircleIcon className="transform group-hover:rotate-180  transition-all duration-300" />
