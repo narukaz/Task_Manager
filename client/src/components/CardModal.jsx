@@ -45,7 +45,7 @@ lg:w-[90vh] w-[45vh] lg:h-auto h-[40vh]  ${day? "bg-white text-black":"bg-gray-6
         />
         <textarea
         value={description} onChange={({target}) => setDescription(target.value)}
-          className="w-full p-3  rounded-2xl hover:border-blue-400 border-[1.5px] outline-0 lg:min-h-[200px]"
+          className="w-full p-3  rounded-2xl hover:border-blue-400 border-[1.5px] outline-0 lg:min-h-[200px] lg:max-h-[300px]"
           placeholder="Enter Description....... "
         />
         <div className="flex justify-start gap-5 items-center">
