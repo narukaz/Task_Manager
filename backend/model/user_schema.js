@@ -6,8 +6,8 @@ const TaskSchema = new Schema({
     description: String,
     status:{type:String, default:"todo"} ,
     tags:[],
-    start:Date,
-    end:Date,
+    start:String,
+    end:String,
 })
 
 

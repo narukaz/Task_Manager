@@ -58,8 +58,8 @@ TaskRouter.post("/create", async (req, res) => {
       title,
       description,
       tags,
-      start: start || new Date(),
-      end:  end || new Date(),
+      start: start ,
+      end:  end ,
       status: "todo",
     });
     
