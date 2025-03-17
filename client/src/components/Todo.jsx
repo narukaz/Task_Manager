@@ -38,10 +38,10 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
             <p className="px-4 my-3 max-h-20 overflow-y-scroll font-mono ">
              {item.description}
             </p>
-            <div className="w-full px-4 flex items-center justify-start bg-blue-400 text-white">
-              <p>{item.start.replaceAll("-", "/")}</p>
-              <p>{"<---->"}</p>
-              <p>{item.end.replaceAll("-", "/")}</p>
+            <div className="w-full px-4 flex items-center justify-between bg-blue-400 text-white">
+              <p>{"start: "+item.start.replaceAll("-", "/")}</p>
+             
+              <p>{"end: "+item.end.replaceAll("-", "/")}</p>
             </div>
             <div className={`flex flex-row-reverse items-center px-4 py-2  ${item.status == "inProgress" ? "bg-yellow-500 text-black ": item.status == "finished" ? "bg-green-600 text-white" : "bg-gray-100 text-black"  } gap-2 rounded-b-xl`}>
               <div className={`w-15 h-10   ${item.status == "finished"? "hover:bg-green-800":"hover:bg-white" } rounded-full flex items-center justify-evenly hover:outline-1 gap-2 px-2`} onClick={(e)=>{
