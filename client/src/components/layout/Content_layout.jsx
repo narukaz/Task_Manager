@@ -12,8 +12,8 @@ function Content_layout() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState([]);
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [start, setStart] = useState(new Date().toISOString().split("T")[0]);
+  const [end, setEnd] = useState(new Date().toISOString().split("T")[0]);
   const [err, setErr] = useState("");
 
   const dispatch = useDispatch();
