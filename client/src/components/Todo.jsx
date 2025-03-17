@@ -35,7 +35,7 @@ function Todo({ name, addCardTrue, onAddCard, data ,handleOnDelete,handlestatusF
               {item.title}
             </h1>
             <div className={`h-1  ${day? "bg-gray-200": "bg-gray-500" } w-[60%] mx-4`}></div>
-            <p className="px-4 my-3 max-h-20 overflow-y-scroll ">
+            <p className="px-4 my-3 max-h-20 overflow-y-scroll font-mono ">
              {item.description}
             </p>
             <div className={`flex flex-row-reverse items-center px-4 py-2  ${item.status == "inProgress" ? "bg-yellow-500 text-black ": item.status == "finished" ? "bg-green-600 text-white" : "bg-gray-100 text-black"  } gap-2 rounded-xl`}>
