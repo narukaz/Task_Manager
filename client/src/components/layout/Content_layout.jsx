@@ -76,7 +76,7 @@ function Content_layout() {
   };
 
   useEffect(() => {
-    dispatch(getAllCards()).then(() => dispatch(GetUser()));
+    dispatch(getAllCards());
   }, [dispatch]);
 
   const handleOnDelete = (id) => {
