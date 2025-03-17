@@ -20,7 +20,7 @@ UserRoute.get("/getUser",authentication,async(req,res)=>{
   return res.status(200).json({
     message: "Successfully login",
     error: false,
-    data:{name}})
+    name})
 })
 
 UserRoute.post("/login", async (req, res) => {
@@ -33,7 +33,7 @@ UserRoute.post("/login", async (req, res) => {
   
 
   if (!userId || !password) {
-    return res.status(200).json({
+    return res.status(404).json({
       message: "Invalid data! UserId or Password is missing",
       error: true,
     });
@@ -42,8 +42,8 @@ UserRoute.post("/login", async (req, res) => {
   
     let response = await UserModel.findOne({ userId });
     if (!response) {
-      return res.status(200).json({
-        succes: false,
+      return res.status(404).json({
+        error: true,
         message: "user not found",
       });
     }
@@ -58,7 +58,7 @@ UserRoute.post("/login", async (req, res) => {
         return res.status(200).json({
         message: "Successfully login",
         error: false,
-        data:{name:response.name}
+        name:response.name
       });
       
     }
@@ -68,7 +68,7 @@ UserRoute.post("/login", async (req, res) => {
    
 
 
-    return res.status(200).json({
+    return res.status(404).json({
       message:"invalid credentials",
       error:true,
       data:null
