@@ -23,7 +23,7 @@ function Login_page() {
         }
        
             dispatch(UserLogin({userId,password})).then((data)=>{
-                console.log(data)
+             
                 if(data?.payload?.error || data?.error?.message){
                     setError(data?.payload?.error|| data.error.message)
                     setTimeout(() => {
@@ -35,7 +35,7 @@ function Login_page() {
             })
             
       .catch((error)=>{
-        console.log(error)
+      
            setError(error.message)
       setTimeout(() => {
         setError("")

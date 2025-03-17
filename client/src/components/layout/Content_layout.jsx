@@ -88,7 +88,7 @@ function Content_layout() {
   };
 
   const handleCardClick = (item) => {
-    console.log(item)
+
     setIsEditMode(true);
     setIsNewCard(true);
     setTitle(item.title);

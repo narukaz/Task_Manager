@@ -70,7 +70,7 @@ let LoginSlice = createSlice({
         builder
         .addCase(UserLogin.pending, (state)=>{state.error = false })
         .addCase(UserLogin.fulfilled, (state,{payload})=>{
-          console.log(payload)
+    
             state.error = payload.error
             state.message = payload.message
             state.user = payload.name
