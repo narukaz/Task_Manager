@@ -56,10 +56,10 @@ lg:w-[90vh] w-[45vh] lg:h-[65vh] h-[40vh]  ${day? "bg-white text-black":"bg-gray
            
           }}
           value={start}
-          defaultValue={new Date().toISOString().split("T")[0]}
+          
           className="p-3 rounded-2xl border-1 cursor-pointer hover:border-blue-700 "
           />
-           <input type="date" defaultValue={new Date().toISOString().split("T")[0]}
+           <input type="date" 
            onChange={({target})=>{
             let date = target.value
             setEnd(date)}}

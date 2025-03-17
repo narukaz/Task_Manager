@@ -58,8 +58,8 @@ function Content_layout() {
     setTitle("");
     setDescription("");
     setTags([]);
-    setStart(new Date().toISOString().split("T")[0]);
-    setEnd(new Date().toISOString().split("T")[0]);
+    setStart();
+    setEnd();
   };
 
   const submitCard = () => {
@@ -97,11 +97,8 @@ function Content_layout() {
     console.log(item)
     setIsEditMode(true);
     setIsNewCard(true);
-
-
     setTitle(item.title);
     setDescription(item.description);
-   
     setStart(item.start);
     setEnd(item.end);
     setEditId(item._id);
