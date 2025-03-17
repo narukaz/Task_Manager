@@ -8,21 +8,23 @@ let initialState={
 
 export const addCard = createAsyncThunk("dashboard/create", async(parameter)=>{
     axios.defaults.withCredentials=true
+    const token = localStorage.getItem("jwtToken");
     const {data} = await axios.post("https://task-manager-muta.onrender.com/task/create", {...parameter},{
         headers: {
           "Content-Type": "application/json",
-          "withCredentials": true,
+         "Authorization": `Bearer ${token}`
         }
       })
     return data
 })
 
 export const getAllCards = createAsyncThunk("dashboard/getAll", async()=>{
+    const token = localStorage.getItem("jwtToken");
     axios.defaults.withCredentials=true
     const {data} = await axios.post("https://task-manager-muta.onrender.com/task/get",{},{
         headers: {
           "Content-Type": "application/json",
-          "withCredentials": true,
+         "Authorization": `Bearer ${token}`
         }
       })
     return data
@@ -30,22 +32,24 @@ export const getAllCards = createAsyncThunk("dashboard/getAll", async()=>{
 
 
 export const updateCard = createAsyncThunk("dashboard/update", async(params)=>{
+    const token = localStorage.getItem("jwtToken");
     axios.defaults.withCredentials=true
     const {data} = await axios.post("https://task-manager-muta.onrender.com/task/edit", params,{
         headers: {
           "Content-Type": "application/json",
-          "withCredentials": true,
+         "Authorization": `Bearer ${token}`
         }
       })
     return data
 })
 
 export const deleteCard = createAsyncThunk("dashboard/delete", async(cardId)=>{
+    const token = localStorage.getItem("jwtToken");
     axios.defaults.withCredentials=true
     const {data} = await axios.delete("https://task-manager-muta.onrender.com/task/delete",{ data:{cardId}},{
         headers: {
           "Content-Type": "application/json",
-          "withCredentials": true,
+         "Authorization": `Bearer ${token}`
         }
       })
     return data

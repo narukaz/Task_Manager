@@ -9,12 +9,13 @@ let initialState={
 }
 
 export const GetUser = createAsyncThunk("user/getUser",async(parameter)=>{
-  axios.defaults.withCredentials=true
+  const token = localStorage.getItem("jwtToken");
   const {data} = await axios.get("https://task-manager-muta.onrender.com/user/getUser",{
    
       headers: {
         "Content-Type": "application/json",
-        "withCredentials": true,
+       "Authorization": `Bearer ${token}`
+
       }
     })
   return data
@@ -30,6 +31,10 @@ export const UserLogin = createAsyncThunk("user/login",async(parameter)=>{
           "withCredentials": true,
         }
       })
+
+      if (data?.token){
+        localStorage.setItem("jwtToken", data.token);
+      }
      
     return data
 })
