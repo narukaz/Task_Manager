@@ -94,10 +94,12 @@ function Content_layout() {
   };
 
   const handleCardClick = (item) => {
+    console.log(item)
     setIsEditMode(true);
     setIsNewCard(true);
     setTitle(item.title);
     setDescription(item.description);
+    
     setStart(item.start);
     setEnd(item.end);
     setEditId(item._id);
