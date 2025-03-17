@@ -78,9 +78,7 @@ function Login_page() {
         <p>Don't have an account?   
              <Link to={"/signup"} className="text-blue-600 underline">{"   SignUp"}</Link>
              </p>
-             <p>Go to dashboard   
-             <Link to={"/dashboard"} className="text-blue-600 underline">{"   Dasboard"}</Link>
-             </p>
+             
     </div>
    </div>
  

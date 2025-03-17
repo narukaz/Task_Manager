@@ -75,6 +75,12 @@ function Content_layout() {
     });
   };
 
+  useEffect(()=>{
+    dispatch(GetUser()).then(()=>{
+      dispatch(getAllCards())
+    })
+  },[])
+
   useEffect(() => {
     dispatch(getAllCards());
   }, [dispatch]);
