@@ -54,7 +54,11 @@ UserRoute.post("/login", async (req, res) => {
     console.log(hashPassword)
     if (hashPassword) {
       let token = jwt.sign({_id:response._id,name:response.name},"abcdefghijklmnopqrstuvwxys",{expiresIn:'1h'})
-      res.cookie('token',token)
+      res.cookie('token',token,{
+        httpOnly:true,
+        sameSite:"None"
+
+      })
         return res.status(200).json({
         message: "Successfully login",
         error: false,
