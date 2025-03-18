@@ -44,7 +44,7 @@ function Signup_page() {
         </div>
        
     <div className="flex flex-col items-center gap-3 p-6 my-auto">
-        <h1 className="text-2xl opacity-50">Sign Up </h1>
+        <h1 className="text-2xl opacity-50">Sign Up to TM! </h1>
         <input type="text" value={name} onChange={({target})=>{setName(target.value)}} placeholder="username" className="w-[80%] h-[3rem] pl-4 pr-2 bg-gray-100 rounded-3xl"/>       
         <input type="text" value={userId} onChange={({target})=>{setUserId(target.value)}} placeholder="abcd@_domain.com" className="w-[80%] h-[3rem] pl-4 pr-2 bg-gray-100 rounded-3xl"/>       
         <input type="password" value={password} onChange={({target})=>{setPassword(target.value)}} placeholder="abcd@1234" className="w-[80%] h-[3rem] pl-4 pr-2 bg-gray-100 rounded-3xl "/>
