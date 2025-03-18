@@ -38,7 +38,7 @@ function Signup_page() {
     lg:w-[800px] w-[400px] lg:h-[500px] h-[400px] bg-white shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)]">
         <div className="bg-amber-300 px-auto rounded-2xl lg:flex items-center justify-center hidden ">
         <h1 className="text-7xl font-bold ">
-            Sign UP!
+            TM
 
         </h1>
         </div>
